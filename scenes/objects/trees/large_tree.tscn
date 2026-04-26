@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ceg0vexucsn13"]
+
+[ext_resource type="Shader" uid="uid://bv8jwqy6j1qt7" path="res://scenes/objects/shake.gdshader" id="1_f4wgc"]
+[ext_resource type="Texture2D" uid="uid://bfgyyax1kcgff" path="res://assets/game/objects/basic_grass_biom_things.png" id="1_ivetc"]
+[ext_resource type="Script" uid="uid://hxr6ve24p8te" path="res://scenes/objects/trees/large_tree.gd" id="2_f4wgc"]
+[ext_resource type="PackedScene" uid="uid://iw6ss4ln5i0p" path="res://scenes/components/hurt_component.tscn" id="2_wjqkr"]
+[ext_resource type="PackedScene" uid="uid://csdxbnarg0twl" path="res://scenes/components/damage_component.tscn" id="3_f4wgc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vpey"]
+resource_local_to_scene = true
+shader = ExtResource("1_f4wgc")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vpey"]
+atlas = ExtResource("1_ivetc")
+region = Rect2(16, 0, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ia52"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_you1t"]
+size = Vector2(16, 30)
+
+[node name="LargeTree" type="Sprite2D" unique_id=767342985]
+material = SubResource("ShaderMaterial_6vpey")
+texture = SubResource("AtlasTexture_6vpey")
+script = ExtResource("2_f4wgc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1283189738]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=561480804]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_0ia52")
+
+[node name="HurtComponent" parent="." unique_id=1382935524 instance=ExtResource("2_wjqkr")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=498446811]
+shape = SubResource("RectangleShape2D_you1t")
+debug_color = Color(0.82408607, 0.24239361, 0.78805184, 0.41960785)
+
+[node name="DamageComponent" parent="." unique_id=640569307 instance=ExtResource("3_f4wgc")]
+max_damage = 6
