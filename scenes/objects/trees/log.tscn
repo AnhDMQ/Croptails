@@ -11,9 +11,11 @@ region = Rect2(80, 32, 16, 16)
 radius = 8.0
 
 [node name="Log" type="Sprite2D" unique_id=456710579]
+y_sort_enabled = true
 texture = SubResource("AtlasTexture_bcctm")
 
 [node name="CollectableComponent" parent="." unique_id=916178852 instance=ExtResource("2_s5rqd")]
+collectable_name = "log"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=883538352]
 shape = SubResource("CircleShape2D_e2a05")
