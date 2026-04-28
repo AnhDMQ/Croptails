@@ -1,4 +1,3 @@
-
 extends Node
 
 var level_scene_name: String
