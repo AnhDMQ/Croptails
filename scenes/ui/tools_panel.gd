@@ -7,7 +7,7 @@ extends PanelContainer
 @onready var tool_tomato: Button = $MarginContainer/HBoxContainer/ToolTomato
 
 func _ready() -> void:
-    #ToolManager.enable_tool.connect(on_enable_tool_button)
+    ToolManager.enable_tool.connect(on_enable_tool_button)
     
     tool_tilling.disabled = true
     tool_tilling.focus_mode = Control.FOCUS_NONE
