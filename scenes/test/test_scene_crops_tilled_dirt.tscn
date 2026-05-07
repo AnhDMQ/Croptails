@@ -8,15 +8,14 @@
 [ext_resource type="Script" uid="uid://dhdj572c7fieo" path="res://scenes/components/field_cursor_component.gd" id="4_4euk7"]
 [ext_resource type="PackedScene" uid="uid://d0dhtip02w7f6" path="res://scenes/ui/game_screen.tscn" id="4_ofexh"]
 [ext_resource type="PackedScene" uid="uid://ch0ildoohd3bq" path="res://scenes/components/save_data_component.tscn" id="5_m37mu"]
-[ext_resource type="Resource" uid="uid://b03s0j5p8iw0p" path="res://resources/tilemap_layer_data_resource.tres" id="6_tfpct"]
 [ext_resource type="PackedScene" uid="uid://crf20puyafqn6" path="res://scenes/components/crop_cursor_component.tscn" id="7_ofexh"]
 [ext_resource type="Script" uid="uid://ch4lmg5p13c7g" path="res://scenes/components/crop_cursor_component.gd" id="8_hd888"]
 [ext_resource type="PackedScene" uid="uid://klktahkdhvev" path="res://scenes/components/save_level_data_component.tscn" id="9_hd888"]
 [ext_resource type="PackedScene" uid="uid://ceg0vexucsn13" path="res://scenes/objects/trees/large_tree.tscn" id="13_tfpct"]
+[ext_resource type="PackedScene" uid="uid://cqawq4fpa5tt6" path="res://scenes/characters/guide/guide.tscn" id="14_tfpct"]
 [ext_resource type="Shader" uid="uid://bv8jwqy6j1qt7" path="res://scenes/objects/shake.gdshader" id="14_u1oq4"]
-[ext_resource type="PackedScene" uid="uid://cqawq4fpa5tt6" path="res://scenes/characters/guide/guide.tscn" id="15_u1oq4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yv6en"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfpct"]
 resource_local_to_scene = true
 shader = ExtResource("14_u1oq4")
 shader_parameter/shake_intensity = 0.0
@@ -29,7 +28,6 @@ shader_parameter/shake_speed = 20.0
 [node name="SaveLevelDataComponent" parent="." unique_id=554718411 instance=ExtResource("9_hd888")]
 
 [node name="DayNightCycleComponent" parent="." unique_id=1169658153 instance=ExtResource("1_4ythn")]
-visible = false
 
 [node name="GameTileMap" type="Node2D" parent="." unique_id=70385188]
 
@@ -43,15 +41,13 @@ tile_map_data = PackedByteArray("AAAJAAoAAQABAAEAAAAJAAkAAQABAAEAAAAJAAgAAQABAAE
 tile_set = ExtResource("2_jnvd8")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTileMap" unique_id=742017469]
-tile_map_data = PackedByteArray("AAAQAA4ACwACAAEAAAAPAA4ACwABAAEAAAAOAA4ACwABAAEAAAANAA4ACwABAAEAAAAMAA4ACwABAAEAAAALAA4ACwABAAEAAAAKAA4ACwABAAEAAAAJAA4ACwAAAAEAAAAQAA8ACwACAAEAAAAPAA8ACwABAAEAAAAOAA8ACwABAAEAAAANAA8ACwABAAEAAAAMAA8ACwABAAEAAAALAA8ACwABAAEAAAAKAA8ACwABAAEAAAAJAA8ACwAAAAEAAAAQABAACwACAAIAAAAPABAACwABAAIAAAAOABAACwABAAIAAAANABAACwABAAIAAAAMABAACwABAAIAAAALABAACwABAAIAAAAKABAACwABAAIAAAAJABAACwAAAAIAAAAQAA0ACwACAAAAAAAPAA0ACwABAAAAAAAOAA0ACwABAAAAAAANAA0ACwABAAAAAAAMAA0ACwABAAAAAAALAA0ACwABAAAAAAAKAA0ACwABAAAAAAAJAA0ACwAAAAAAAAA=")
 tile_set = ExtResource("2_jnvd8")
 
 [node name="SaveDataComponent" parent="GameTileMap/TilledSoil" unique_id=1674194383 instance=ExtResource("5_m37mu")]
-save_data_resource = ExtResource("6_tfpct")
 
 [node name="CropFields" type="Node2D" parent="." unique_id=1452854846]
 
-[node name="FieldCursorComponent" parent="." unique_id=1926868395 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("3_jnvd8")]
+[node name="FiledCursorComponent" parent="." unique_id=1926868395 node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("3_jnvd8")]
 script = ExtResource("4_4euk7")
 grass_tilemap_layer = NodePath("../GameTileMap/Grass")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
@@ -66,8 +62,8 @@ position = Vector2(202, 200)
 [node name="GameScreen" parent="." unique_id=1144728078 instance=ExtResource("4_ofexh")]
 
 [node name="LargeTree" parent="." unique_id=767342985 instance=ExtResource("13_tfpct")]
-material = SubResource("ShaderMaterial_yv6en")
-position = Vector2(258, 188)
+material = SubResource("ShaderMaterial_tfpct")
+position = Vector2(160, 167)
 
-[node name="Guide" parent="." unique_id=1366970132 instance=ExtResource("15_u1oq4")]
-position = Vector2(203, 173)
+[node name="Guide" parent="." unique_id=1366970132 instance=ExtResource("14_tfpct")]
+position = Vector2(151, 194)
